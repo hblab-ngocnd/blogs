@@ -9,3 +9,4 @@ include:
   - ./golang/go_struct.md
   - ./golang/options_pattern.md
   - ./golang/chanels.md
+theme: jekyll-theme-hacker
