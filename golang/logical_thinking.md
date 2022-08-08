@@ -1,5 +1,5 @@
-## Tựa đề
-### Giải quyết công việc hiệu quả theo cách nghĩ của một engineer
+## Giải quyết công việc hiệu quả theo cách nghĩ của một engineer
+
 ## Bài toán
 Hiện tại mình đang làm việc cho  khách hàng dưới dạng remote onsite.
 
