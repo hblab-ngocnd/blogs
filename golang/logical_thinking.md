@@ -1,4 +1,5 @@
 ## Tựa đề
+### Giải quyết công việc hiệu quả theo cách nghĩ của một engineer
 ## Bài toán
 Hiện tại mình đang làm việc cho  khách hàng dưới dạng remote onsite.
 
@@ -297,6 +298,7 @@ for _, info := range usedInfoList {
 ```
 #### Kết quả
 Chạy hàm test trên sẽ ra kết quả dạng như sau
+
 ```cmd
 https://github.com/hblab-ngocnd/get-started/blob/main/controller/dictionary.go#L10
 https://github.com/hblab-ngocnd/get-started/blob/main/controller/dictionary.go#L82
@@ -304,4 +306,5 @@ https://github.com/hblab-ngocnd/get-started/blob/main/controller/file.go#L10
 https://github.com/hblab-ngocnd/get-started/blob/main/controller/file.go#L82
 ....
 ```
+
 #### TODO: check lại và fix bug
