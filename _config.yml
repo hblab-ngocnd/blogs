@@ -4,4 +4,8 @@ relative_links:
   enabled: true
   collections: true
 include:
+  - README.md
   - ./golang/logical_thinking.md
+  - ./golang/go_struct.md
+  - ./golang/options_pattern.md
+  - ./golang/chanels.md
