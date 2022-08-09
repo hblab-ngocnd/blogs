@@ -1,4 +1,4 @@
-###[Source Link](https://go101.org/article/channel.html)
+### [Source Link](https://go101.org/article/channel.html)
 
 ### TODO: translate to Vietnamese
 

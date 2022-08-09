@@ -1,19 +1,21 @@
-## Giải quyết công việc hiệu quả theo cách nghĩ của một engineer
+## Giải quyết công việc hiệu quả bằng cách nghĩ của một engineer
 
 ## Bài toán
-Hiện tại mình đang làm việc cho  khách hàng dưới dạng remote onsite.
+Hiện tại mình đang làm việc cho khách hàng dưới dạng remote onsite.
 
 Mình được sắp xếp thuộc team `content engineer`
 
 Công nghệ team mình đang sử dụng chủ yếu là : `golang`, `aws`, `docker`,`serverless`,`reactjs`, `terraform`,...
 
-Bài toán bắt đầu khi mình được giao một task hạ level log từ `error` xuống `warn` ở những nơi gọi tới một `service` có trong project đang phát triển để tiện lợi trong việc điều tra lỗi.
+Bài toán bắt đầu khi mình được giao một task hạ level log từ `error` xuống `warn` ở những nơi gọi tới một `service` có trong project đang phát triển, nhằm mục đích tiện lợi trong việc điều tra lỗi, cũng như giảm thiểu những alert không cần thiết từ `Amazon CloudWatch`
 
 ### Phân tích bài toán
-Việc đầu tiên trong task này là liệt kê những chỗ trong source code thuộc folder handler các http request  gọi đến server.
-Xác nhận với leader có cần thiết phải hạ level log đối với những xử lý cụ thể hay không.
+- Việc đầu tiên trong task này là liệt kê những chỗ trong source code thuộc folder handler các http request  gọi đến server.
+
+- Xác nhận với leader có cần thiết phải hạ level log đối với những xử lý cụ thể hay không.
 
 ### Phân tích hiện trạng source code
+
 ***Cấu trúc folder trong dự án***
 ```
 project
@@ -32,7 +34,7 @@ project
 │   │   web.go //file khai báo, khởi tạo các singleton object services
 ```
 
-Mỗi service sẽ được tổ chức thành từng folder, trong đó file cùng tên package sẽ định nghĩa interface chứa các method public được gọi từ bên ngoài service.
+Mỗi `service` sẽ được tổ chức thành từng folder, trong đó file cùng tên package sẽ định nghĩa interface chứa các method public được gọi từ bên ngoài service.
 Trong ví dụ này là file `translate.go` có dạng như sau.
 
 ```go
@@ -49,8 +51,8 @@ var (
 func GetService(ctx context.Context) (Service,error) {
 	once.Do(func() {
         cf := &Config{
-      		Enpoint : os.Getenv("ENPOINT"),
-     		Port : os.Getenv("POST"),
+      		Enpoint : os.Getenv("ENPOINT"),
+     		Port : os.Getenv("POST"),
         }
     	svc = initService(cf)
     })
@@ -88,6 +90,7 @@ func (t *service) BatchTranslate(ctx context.Context, data []models.Word) error{
 	//Implement here
 }
 ```
+
 `web` : package chứa code các router thực hiện handler các request
 
  ```go
@@ -107,8 +110,9 @@ func (t *service) BatchTranslate(ctx context.Context, data []models.Word) error{
   	return r
  }
  ```
+
 Các `http request handler` sẽ gọi tới service thông qua biến global này theo dạng sau.
-Mục đích là để inject `mock test`  service dành cho việc viết `unit test`
+Mục đích là để inject `mock test` service dành cho việc viết `unit test`
 
  ```go
  ##web/translate.go
@@ -148,7 +152,7 @@ humm... Việc này quả là nhàm chán đối với 1 engineer
 Vì cách hành động trên là các công việc lặp lại, nên tại sao mình không giải quết nó bằng code nhỉ !!
 
 ### Cách tiếp cận bằng code
-Để giải quyết bài toán yế tưởng của mình là sẽ viết 1 hàm test để cùng folder chứa service, trong hàm sẽ làm những việc sau
+Để giải quyết bài toán ý tưởng của mình là sẽ viết 1 hàm test để cùng folder chứa service, trong hàm sẽ làm những việc sau
 
 - Việc đầu tiên cần liệt kê các method có trong interface. -> tạo regex để tìm kiếm
 - Đọc các file có trong folder web, trừ file có đuôi _test.go là file chứ unitest
@@ -160,6 +164,7 @@ Cùng giải quyết lần lượt các step
 #### Liệt  kê các method name của interface, sinh ra chuỗi regex
 Đối với việc này chúng ta có thể thực hiện bằng tay tuy nhiên phương án tiếp cận là code nên mình sẽ tìm cách xử lý bằng code.
 Thật may trong `golang` có cách để chúng ta làm điều này
+
 ```go
 ##serviceTranslate/translate_test.go
 
@@ -170,7 +175,9 @@ for i := 0; i < itf.NumMethod(); i++ {
 	methods = append(methods, strings.Join([]string{"[ ].{1,}[.]", itf.Method(i).Name}, ""))
 }
 ```
+
 Tạo regex đùng cho việc tìm kiếm
+
 ```go
 func makeHasCallFuncRegex(s []string) *regexp.Regexp {
 	strRaw := strings.Join(s, "|")
@@ -178,6 +185,7 @@ func makeHasCallFuncRegex(s []string) *regexp.Regexp {
 	return reg
 }
 ```
+
 #### Đọc các file code có trong folder web
 
 ```go
@@ -195,6 +203,7 @@ for _, file := range files {
 	}
 }
 ```
+
 #### Xử lý tìm kiếm đối với từng file
 
 Theo suy nghĩ ban đầu chúng ta sẽ xử lý tuần tự lần lượt với từng file.
@@ -206,7 +215,7 @@ Vì kết quả của việc này là liệt kê nên thứ tự file là không
 
 ***==> Hướng xử lý sẽ là đọc đồng thời theo kiểu `concurrency`***
 
-Rất may `golang` hỗ trợ điều này rất tốt, giúp chúng ta dễ dàng thực hiện việc này.
+`Golang` hỗ trợ điều này rất tốt, `goroutines` giúp chúng ta dễ dàng thực hiện việc này.
 
 ```go
 ##serviceTranslate/translate_test.go
@@ -242,11 +251,14 @@ result = append(result, UsedInfo{
 				Link:     strings.Join([]string{baseLink, path.Base(filePath), fmt.Sprintf("#L%d", line)}, "/"),
                 })
 ```
-Điều kiện check pass regex và gọi qua tên biến lưu ở `daletServiceObjectName`
+Điều kiện check pass regex và gọi qua tên biến lưu ở `tranServiceObjectName`
+
 ```go
-if used := reg.FindString(fileScanner.Text()); used != "" && strings.Contains(used, daletServiceObjectName)
+if used := reg.FindString(fileScanner.Text()); used != "" && strings.Contains(used, tranServiceObjectName)
 ```
+
 Toàn bộ xử lý của hàm
+
 ```go
 func GetFileLineUsedTranlateService(filePath string, reg *regexp.Regexp, c chan<- []UsedInfo) {
 	readFile, err := os.Open(filePath)
@@ -254,7 +266,10 @@ func GetFileLineUsedTranlateService(filePath string, reg *regexp.Regexp, c chan<
 		fmt.Println(err)
 	}
 	defer readFile.Close()
-	baseLink := "https://github.com/abema/mam-tool-api/blob/master/web"
+	repoURL := "https://github.com/hblab-ngocnd/get-started/blob/"
+	branchName := "master"
+	folderName := "web"
+	baseLink := fmt.Sprintf("%s/%s/%s",repoURL,branchName,folderName)
 	fileScanner := bufio.NewScanner(readFile)
 	fileScanner.Split(bufio.ScanLines)
 	line := 1
@@ -266,11 +281,11 @@ func GetFileLineUsedTranlateService(filePath string, reg *regexp.Regexp, c chan<
 			line++
 			continue
 		}
-        if daletServiceObjectName == "" {
+        if tranServiceObjectName == "" {
 			line++
 			continue
 		}
-		if used := reg.FindString(fileScanner.Text()); used != "" && strings.Contains(used, daletServiceObjectName) {
+		if used := reg.FindString(fileScanner.Text()); used != "" && strings.Contains(used, tranServiceObjectName) {
 			result = append(result, UsedInfo{
 				FileName: path.Base(filePath),
 				Line:     line,
@@ -284,7 +299,9 @@ func GetFileLineUsedTranlateService(filePath string, reg *regexp.Regexp, c chan<
 	c <- result
 }
 ```
+
 #### Thống kê kết quả và in ra màn hình
+
 ```go
 usedInfoList := make([]UsedInfo, 0, len(results)*10)
 for i := 0; i < len(results); i++ {
@@ -296,6 +313,7 @@ for _, info := range usedInfoList {
 		fmt.Println(info.Link)
 }
 ```
+
 #### Kết quả
 Chạy hàm test trên sẽ ra kết quả dạng như sau
 
