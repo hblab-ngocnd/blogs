@@ -1,5 +1,5 @@
 # なぜGo : Golangの利点
-## [ソース](https://medium.com/@julienetienne/why-go-the-benefits-of-golang-6c39ea6cff7e)
+## [翻訳先ソース : Why Go benefits of Golang](https://medium.com/@julienetienne/why-go-the-benefits-of-golang-6c39ea6cff7e)
 
 ![images](https://hblab-ngocnd.github.io/blogs//golang/images/golang.jpeg)
 
