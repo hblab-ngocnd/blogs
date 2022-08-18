@@ -9,4 +9,5 @@ include:
   - ./golang/go_struct.md
   - ./golang/options_pattern.md
   - ./golang/chanels.md
+  - ./golang/why_go_jp.md
 theme: jekyll-theme-cayman
