@@ -25,7 +25,7 @@ Here are some topics I'm interested in
 ### AWS
 
 ### 日本語版
-  - [なぜ`Go`：`Golang`の利点](https://hblab-ngocnd.github.io/blogs/golang/why_go_jp)
+  - [なぜGo：Golangの利点](https://hblab-ngocnd.github.io/blogs/golang/why_go_jp)
 #### TODO
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=hblab-ngocnd&label=Profile%20views&color=0e75b6&style=flat" alt="hblab-ngocnd" /> </p>
