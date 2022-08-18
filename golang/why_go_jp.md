@@ -1,14 +1,14 @@
 # なぜ`Go` : `Golang`の利点
 ## [ソース](https://medium.com/@julienetienne/why-go-the-benefits-of-golang-6c39ea6cff7e)
 
-![images](/golang/images/golang.jpeg)
+![images](https://hblab-ngocnd.github.io/blogs//golang/images/golang.jpeg)
 
 ## Go が望ましい理由の概要です。
 
-- ***ウェブ開発**
+- ***ウェブ開発***
 - ***クラウドやネットワークサービス***
 - ***DevOpsやサイトの信頼性***
-- ***コマンドラインインターフェイス**
+- ***コマンドラインインターフェイス***
 
 ### ***バイナリ実行可能ファイル***
 
