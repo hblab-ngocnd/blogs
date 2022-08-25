@@ -449,12 +449,48 @@ Showing top 10 nodes out of 21
 
 ## So sánh và kết luận với trường hợp N = 10
 
+```
+func BenchmarkFib10(b *testing.B) {
+	// run the FibRecursive function b.N times
+	for n := 0; n < b.N; n++ {
+		FibRecursive(10)
+	}
+	for n := 0; n < b.N; n++ {
+		FibNonRecursive(10)
+	}
+	for n := 0; n < b.N; n++ {
+		FibNonRecursiveOptimized(10)
+	}
+}
+```
+
+```
+Type: cpu
+Time: Aug 26, 2022 at 3:55am (+07)
+Duration: 1.54s, Total samples = 1.22s (79.30%)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top
+Showing nodes accounting for 1.22s, 100% of 1.22s total
+Showing top 10 nodes out of 18
+      flat  flat%   sum%        cum   cum%
+     1.15s 94.26% 94.26%      1.16s 95.08%  github.com/hblab-ngocnd/csv-demo/bench.FibRecursive
+     0.02s  1.64% 95.90%      1.21s 99.18%  github.com/hblab-ngocnd/csv-demo/bench.BenchmarkFib10
+     0.02s  1.64% 97.54%      0.02s  1.64%  github.com/hblab-ngocnd/csv-demo/bench.FibNonRecursiveOptimized (inline)
+     0.01s  0.82% 98.36%      0.01s  0.82%  github.com/hblab-ngocnd/csv-demo/bench.FibNonRecursive (inline)
+     0.01s  0.82% 99.18%      0.01s  0.82%  runtime.(*spanSet).push
+     0.01s  0.82%   100%      0.01s  0.82%  runtime.asyncPreempt
+         0     0%   100%      0.01s  0.82%  runtime.(*mcache).releaseAll
+         0     0%   100%      0.01s  0.82%  runtime.(*mcentral).uncacheSpan
+         0     0%   100%      0.01s  0.82%  runtime.ReadMemStats
+         0     0%   100%      0.01s  0.82%  runtime.ReadMemStats.func1
+```
+
+![images](https://hblab-ngocnd.github.io/blogs/golang/images/fibonaci-all.svg)
+
 | Tiêu chí      | Recursive |  Non Recursive     | Non Recursive Optimized |
 | :---        |    :----:   |          ---: | ---: |
-| Time      | `1.21s`      |  `0.98s`  | `0.90s` |
+| Time      | `1.16s`      |  `0.01s`  | `0.02s` |
 | Memory   | `5140.68kB`        | `5811.98kB`      |  `3746.37kB` |
-
-Với trường hợp N = 10 không có quá nhiều khác biệt. Tuy nhiên với số lần lặp lớn hơn khả năng sự khác biệt sẽ càng rõ.
 
 ***Updated***
 
