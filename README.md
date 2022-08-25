@@ -21,6 +21,7 @@ Here are some topics I'm interested in
   - [Writing memory efficient and CPU optimized Go Structs](https://hblab-ngocnd.github.io/blogs/golang/go_struct)
   - [Channels in Go](https://hblab-ngocnd.github.io/blogs/golang/chanels)
   - [Options Pattern in Golang](https://hblab-ngocnd.github.io/blogs/golang/options_pattern)
+  - [Test benchmark fibonaci](https://hblab-ngocnd.github.io/blogs/golang/benchmark)
 
 ### AWS
 

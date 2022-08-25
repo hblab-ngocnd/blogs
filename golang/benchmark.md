@@ -318,10 +318,15 @@ Showing top 10 nodes out of 26
 | Tiêu chí      | Recursive |  Non Recursive     |
 | :---        |    :----:   |          ---: |
 | Time      | `1.21s`      |  `980ms`  |
-| Memory   | 5140.68kB        | 5811.98kB      |
+| Memory   | `5140.68kB`        | `5811.98kB`      |
 
 Với trường hợp N = 10 không có quá nhiều khác biệt. Tuy nhiên với số lần lặp lớn hơn khả năng sự khác biệt sẽ càng rõ.
 
-Bạn hãy test thử xem let try
+Bạn hãy test thử xem ***let try !!!***
+### Tài liệu tham khảo
+
+- https://uet.vnu.edu.vn/~chauttm/dsa2015f/readings/Recursion.html
+- https://users.soict.hust.edu.vn/trungtt/uploads/slides/KTLT_Bai03.pdf
+- https://medium.com/@felipedutratine/profile-your-benchmark-with-pprof-fb7070ee1a94
 
 ***Happy codding !!!***
