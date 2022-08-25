@@ -185,7 +185,7 @@ import (
 	"testing"
 )
 
-unc FibNonRecursive(n int) int {
+func FibNonRecursive(n int) int {
 	if n < 2 {
 		return n
 	}
@@ -206,6 +206,41 @@ func BenchmarkFibNonRecursive10(b *testing.B) {
 	}
 }
 ```
+
+***Optimized***
+
+Do biến `tmp` được cấp phát trong vòng lặp làm tăng bộ nhớ khá nhiều, gây nên kết luận sai. Sau khi tìm hiểu được nguyên nhân thì mình sửa thành như sau
+
+```go
+package bench
+
+import (
+	"testing"
+)
+
+func FibNonRecursive(n int) int {
+	if n < 2 {
+		return n
+	}
+	f1 := 0
+	f2 := 1
+    tmp := 0
+	for i := 2; i < n; i++ {
+		tmp = f2
+		f2 = f1 + f2
+		f1 = tmp
+	}
+	return f2
+}
+
+func BenchmarkFibNonRecursive10(b *testing.B) {
+	// run the FibNonRecursive function b.N times
+	for n := 0; n < b.N; n++ {
+		FibNonRecursive(10)
+	}
+}
+```
+
 #### Phân tích
 Tiếp tục chạy lệnh tương tự
 
@@ -222,7 +257,19 @@ BenchmarkFibNonRecursive10-12           223505781                5.321 ns/op    
 PASS
 ok      github.com/hblab-ngocnd/csv-demo/bench  4.895s
 ```
-có `223505781` lần lặp mỗi lần mất `5.321 ns` tổng `1189274260.7 ns`
+có `223505781` phép toán mỗi phép toán mất `5.321 ns` tổng `1189274260.7 ns`
+
+***Optimized***
+
+```
+goos: darwin
+goarch: amd64
+pkg: github.com/hblab-ngocnd/csv-demo/bench
+cpu: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+BenchmarkFibNonRecursive10-12           238679884                4.987 ns/op           0 B/op          0 allocs/op
+PASS
+ok      github.com/hblab-ngocnd/csv-demo/bench  1.936s
+```
 
 Chạy lệnh
 
@@ -249,6 +296,30 @@ Showing nodes accounting for 1480ms, 100% of 1480ms total
 ```
 
 Mất tổng thời gian chạy cho `FibNonRecursive` là `980ms`
+
+***Optimized***
+
+```
+Type: cpu
+Time: Aug 26, 2022 at 3:20am (+07)
+Duration: 1.85s, Total samples = 1.51s (81.53%)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top
+Showing nodes accounting for 1.51s, 100% of 1.51s total
+Showing top 10 nodes out of 20
+      flat  flat%   sum%        cum   cum%
+     0.90s 59.60% 59.60%      0.90s 59.60%  github.com/hblab-ngocnd/csv-demo/bench.FibNonRecursive (inline)
+     0.55s 36.42% 96.03%      1.47s 97.35%  github.com/hblab-ngocnd/csv-demo/bench.BenchmarkFibNonRecursive10
+     0.02s  1.32% 97.35%      0.02s  1.32%  runtime.asyncPreempt
+     0.02s  1.32% 98.68%      0.02s  1.32%  runtime.libcCall
+     0.01s  0.66% 99.34%      0.02s  1.32%  runtime.kevent
+     0.01s  0.66%   100%      0.02s  1.32%  runtime.pthread_cond_wait
+         0     0%   100%      0.03s  1.99%  runtime.findrunnable
+         0     0%   100%      0.02s  1.32%  runtime.mPark (inline)
+         0     0%   100%      0.03s  1.99%  runtime.mcall
+         0     0%   100%      0.02s  1.32%  runtime.netpoll
+```
+Mất tổng thời gian chạy cho `FibNonRecursive` là `0.90s`
 
 `(pprof) list FibNonRecursive`
 ```
@@ -279,9 +350,44 @@ ROUTINE ======================== github.com/hblab-ngocnd/csv-demo/bench.FibNonRe
          .          .     31:   }
          .          .     32:   return f2
 ```
+
+***Optimized***
+
+```
+(pprof) list FibNonRecursive
+Total: 1.51s
+ROUTINE ======================== github.com/hblab-ngocnd/csv-demo/bench.BenchmarkFibNonRecursive10 in /Users/S16593/Hblab/Motify/csv-demo/bench/Figo_test.go
+     550ms      1.47s (flat, cum) 97.35% of Total
+         .          .     33:   return f2
+         .          .     34:}
+         .          .     35:
+         .          .     36:func BenchmarkFibNonRecursive10(b *testing.B) {
+         .          .     37:   // run the FibNonRecursive function b.N times
+     190ms      200ms     38:   for n := 0; n < b.N; n++ {
+     360ms      1.26s     39:           FibNonRecursive(10)
+         .          .     40:   }
+         .       10ms     41:}
+ROUTINE ======================== github.com/hblab-ngocnd/csv-demo/bench.FibNonRecursive in /Users/S16593/Hblab/Motify/csv-demo/bench/Figo_test.go
+     900ms      900ms (flat, cum) 59.60% of Total
+         .          .     23:           return n
+         .          .     24:   }
+         .          .     25:   f1 := 0
+         .          .     26:   f2 := 1
+         .          .     27:   tmp := f2
+     900ms      900ms     28:   for i := 2; i < n; i++ {
+         .          .     29:           tmp = f2
+         .          .     30:           f2 = f1 + f2
+         .          .     31:           f1 = tmp
+         .          .     32:   }
+         .          .     33:   return f2
+```
 `(pprof) list web`
 
 ![images](https://hblab-ngocnd.github.io/blogs/golang/images/fibonaci-non-recursive.svg)
+
+***Optimized***
+
+![images](https://hblab-ngocnd.github.io/blogs/golang/images/fibonaci-non-recursive-optimized.svg)
 
 `(pprof) q`
 
@@ -311,20 +417,50 @@ Showing top 10 nodes out of 26
          0     0%   100%  1025.12kB 17.64%  runtime.mstart
 ```
 
+***Optimized***
+
+```
+Type: alloc_space
+Time: Aug 26, 2022 at 3:20am (+07)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top
+Showing nodes accounting for 3746.37kB, 100% of 3746.37kB total
+Showing top 10 nodes out of 21
+      flat  flat%   sum%        cum   cum%
+ 1537.69kB 41.04% 41.04%  1537.69kB 41.04%  runtime.allocm
+ 1184.27kB 31.61% 72.66%  1184.27kB 31.61%  runtime/pprof.StartCPUProfile
+ 1024.41kB 27.34%   100%  1024.41kB 27.34%  runtime.malg
+         0     0%   100%  1184.27kB 31.61%  main.main
+         0     0%   100%  1184.27kB 31.61%  runtime.main
+         0     0%   100%   512.56kB 13.68%  runtime.mcall
+         0     0%   100%  1025.12kB 27.36%  runtime.mstart
+         0     0%   100%  1025.12kB 27.36%  runtime.mstart0
+         0     0%   100%  1025.12kB 27.36%  runtime.mstart1
+         0     0%   100%  1537.69kB 41.04%  runtime.newm
+```
+
 `(pprof) web`
 
 ![images](https://hblab-ngocnd.github.io/blogs/golang/images/fibonaci-non-recursive-mem.svg)
 
+***Optimized***
+
+![images](https://hblab-ngocnd.github.io/blogs/golang/images/fibonaci-non-recursive-mem-optimized.svg)
+
 ## So sánh và kết luận với trường hợp N = 10
 
-| Tiêu chí      | Recursive |  Non Recursive     |
-| :---        |    :----:   |          ---: |
-| Time      | `1.21s`      |  `980ms`  |
-| Memory   | `5140.68kB`        | `5811.98kB`      |
+| Tiêu chí      | Recursive |  Non Recursive     | Non Recursive Optimized |
+| :---        |    :----:   |          ---: | ---: |
+| Time      | `1.21s`      |  `0.98s`  | `0.90s` |
+| Memory   | `5140.68kB`        | `5811.98kB`      |  `3746.37kB` |
 
 Với trường hợp N = 10 không có quá nhiều khác biệt. Tuy nhiên với số lần lặp lớn hơn khả năng sự khác biệt sẽ càng rõ.
 
+***Updated***
+Đúng với nhận xét ban đầu, sau khi optimized `Non Recursive` có thời gian chạy thấp hơn và tốn ít bộ nhớ hơn so với `Recursive`
+
 Bạn hãy test thử xem ***let try !!!***
+
 ### Tài liệu tham khảo
 
 - https://uet.vnu.edu.vn/~chauttm/dsa2015f/readings/Recursion.html
