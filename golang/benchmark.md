@@ -457,6 +457,7 @@ Showing top 10 nodes out of 21
 Với trường hợp N = 10 không có quá nhiều khác biệt. Tuy nhiên với số lần lặp lớn hơn khả năng sự khác biệt sẽ càng rõ.
 
 ***Updated***
+
 Đúng với nhận xét ban đầu, sau khi optimized `Non Recursive` có thời gian chạy thấp hơn và tốn ít bộ nhớ hơn so với `Recursive`
 
 Bạn hãy test thử xem ***let try !!!***
