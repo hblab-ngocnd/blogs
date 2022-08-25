@@ -492,7 +492,7 @@ Showing top 10 nodes out of 18
 | Time      | `1.16s`      |  `0.01s`  | `0.02s` |
 | Memory   | `5140.68kB`        | `5811.98kB`      |  `3746.37kB` |
 
-***Lưu ý: Tiêu chí memory về cách so sánh là chưa chính xác***
+***Lưu ý: Tiêu chí memory về cách so sánh là chưa chính xác do chưa kiểm soát đươc `b.N times`***
 
 ***Updated***
 
