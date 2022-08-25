@@ -1,8 +1,10 @@
 ## Test benchmark fibonaci recursive/non recursive
 
-## Động cơ, lý do
+### Động cơ, lý do
 
 Trước giờ mình vẫn có thắc mắc là đối với cùng 1 bài toán giữa recursive và non recursive thì cái nào sẽ là cách giải quyết hiệu quả hơn.
+Nhân dịp mình có review code của các member trong team, mọi người có trao đổi về recursive/ non recursive nên mình quyết định tìm hiểu sâu hơn xem suy nghĩ từ đầu của mình đã đúng chưa.
+
 Mình có tìm hiểu các tài liệu thì hầu như mọi người đều có chung nhận xét như sau:
 
 >Ưu điểm của đệ quy (recursive): Gọn gàng dễ hiểu, dễ viết code
