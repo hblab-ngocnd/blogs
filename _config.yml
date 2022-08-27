@@ -11,4 +11,5 @@ include:
   - ./golang/chanels.md
   - ./golang/why_go_jp.md
   - ./golang/benchmark.md
+  - ./healthline/sleep-pattern.md
 theme: jekyll-theme-cayman
