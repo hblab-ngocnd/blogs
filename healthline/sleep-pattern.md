@@ -14,7 +14,7 @@ Có 3 kiểu ngủ được nêu trong bài:
 
 ***Lợi ích: Ngủ ít mà không bị buồn ngủ.***
 
-***Hại: Có thể gây các bệnh thiếu ngủ như:***
+***Hại: Có thể gây các bệnh do thiếu ngủ gây ra như:***
 
 - Lo âu
 - Huyết áp cao
