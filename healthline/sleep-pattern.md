@@ -39,6 +39,3 @@ Số giờ cần ngủ để phát triển theo độ tuổi
 
 
 Có 1 số người có gen tên là `ADRB1` cho phép họ ngủ ít hơn 6.5 tiếng 1 ngày mà vẫn bình thường.
-
-Hiện tại em đang a rứa mà không biết có gen ni không thì phải đi khám đã.
-
