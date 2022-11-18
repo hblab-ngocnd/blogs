@@ -1,3 +1,7 @@
+
+### Link bài gốc [Polyphasic Sleep](https://www.healthline.com/health/polyphasic-sleep?utm_medium=social&utm_source=facebook&utm_campaign=social-sharebar-referred-desktop&fbclid=IwAR2nlkQ5IKS4BHYv4c7fOKkAzNwmV7TfMl_qblpAB9rGhMTOtmG5EYgDGic)
+
+
 Có 3 kiểu ngủ được nêu trong bài:
 
 1. ***Monophasic sleep pattern***: Ngủ 1 pha, là ngủ 1 lần trong ngày, ngủ thẳng giấc
