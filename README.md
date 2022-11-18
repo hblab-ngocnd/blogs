@@ -6,6 +6,8 @@ I have a passion for clean code, Golang, teaching, Java, C and Javascript
 
 My current side project is [Markdown Profile](https://markdownprofile.com)
 
+[Facebook](https://www.facebook.com/ngocndbk/)
+
 [LinkedIn 💼](https://www.linkedin.com/in/nguyen-duc-ngoc-109781114/)
 
 [Twitter 🐦](https://twitter.com/ducngocvnk57)
