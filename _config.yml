@@ -12,4 +12,5 @@ include:
   - ./golang/why_go_jp.md
   - ./golang/benchmark.md
   - ./healthline/sleep-pattern.md
+  - ./aws/cognito.md
 theme: jekyll-theme-cayman
