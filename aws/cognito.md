@@ -31,8 +31,6 @@ Hai thành phần chính của **Amazon Cognito** là **user pools** and **ident
 
 Với **Identity pools**, người dùng có thể lấy thông tin xác thực AWS tạm thời để truy cập các dịch vụ AWS, chẳng hạn như Amazon S3 và DynamoDB
 
-## Kết luận
-Đối với dự án SNSCrawling chúng ta sẽ dùng theo kịch bản này
 
 ### Upload CSV
 
@@ -161,8 +159,7 @@ Tham khảo:
 
 ### Signin screen
 
-[Amazon Cognitoを使ったサインイン画面]
-(https://www.tdi.co.jp/miso/amazon-cognito-sign-up)
+[Amazon Cognitoを使ったサインイン画面](https://www.tdi.co.jp/miso/amazon-cognito-sign-up)
 
 https://ldarren.medium.com/access-aws-s3-with-cognito-7c96fd1038f0
 https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_cognito-bucket.html
