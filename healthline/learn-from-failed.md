@@ -18,7 +18,7 @@
 - Không thể thay đổi quá khứ, tuy nhiên có thể học tập và sửa sai để thay đổi tương lai
 
 # Các bước để học
-## 1. Chấp nhận theo hướng tích cực
+## 1. Thừa nhận thất bại (Chấp nhận theo hướng tích cực)
 
 - Thất bại là gì? Không đạt được những mục tiêu mà mình mong muốn, hi vọng lúc bắt tay hành động
   
