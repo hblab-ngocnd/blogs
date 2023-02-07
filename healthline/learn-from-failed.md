@@ -1,6 +1,8 @@
 # Lý do chọn chủ đề
 - Bẫy tư duy: Có quá nhiều sách, tác giả viết về các phương pháp để thành công (Hoàn cảnh)
 
+- Thomas Edison có 10.000 lần thất bại trước khi tạo ra được bóng đèn
+
 - Câu nói của bố Chủ tịch Hoàng Nam Tiến (Trượt đại học -> thất bại ở chỗ nào đứng lên ở chỗ đấy)
   
 - Khái niệm VUCA: Volatility (Biến động), Uncertainty(Không chắc chắn), Complexity(Phức tạp), Ambiguity(Mơ hồ) -> Học kỹ năng gì đây? 
@@ -24,17 +26,17 @@
   
 - Thất bại thường gây nên thất vọng, nghi ngờ bản thân -> khó chấp nhận những điều tiêu cực
 
-- Thành công dễ quá thường không mang lại nhiều giá trị
+- Thành công dễ quá thường không mang lại nhiều giá trị (học bổng và học lại)
+
+- Dù có nỗ lực đến mấy thì vẫn có khả năng thất bại (Vô thường)
 
 - Câu nói của Mike Tyson: Everyone has a plan 'till they get punched in the mouth
   
-- Mọi việc xảy ra đều là việc nên xảy ra, và có ý nghĩa
+- Hai mặt của 1 vấn đề: Mọi việc xảy ra đều là việc nên xảy ra, và có ý nghĩa
 
 - Sai không có vấn đề gì, sai một lỗi > 2 lần mới là vấn đề
   
 - Nhìn theo hướng tích cực: Không thành công cũng thành nhân, không cháy nhà, chết người thì không sao cả
-
-- Dù có nỗ lực đến mấy thì vẫn có khả năng thất bại (Vô thường)
 
 - Mô hình suy nghĩ trong khóa Agilearn (Suy nghĩ -> hành động)
   
@@ -55,3 +57,16 @@
 ## 3. Sửa lỗi
 
 - Sai chỗ nào sửa chỗ đấy, yếu chỗ nào sửa chỗ đấy: Đội tuyển Nhật luyện đá pen
+
+# Kết luận
+Đời người có hạn nên cũng đừng sai nhiều quá
+
+Có cách giải quyết là tin vào luân hồi :))
+
+Hoặc dạy cho các thế hệ kế cận kinh nghiệm thất bại
+
+# Link Tham Khảo
+- [Phuong-phap-hoc-tap: trang 76](https://science-technology.vn/wp-content/uploads/2014/10/Phuong-phap-hoc-tap.pdf)
+- [Phát huy tiềm năng cùng LẬP TRÌNH NGÔN NGỮ TƯ DUY](https://nhatrangbooks.com/sach/phat-huy-tiem-nang-cung-nlp-tap-2-2/?gclid=CjwKCAiAioifBhAXEiwApzCzttzTddoFV_QW8-71LlFb-rBieeRy0uG4xR8v0NCCSrhEHRlAMPTz6BoCSnQQAvD_BwE)
+- [Let us praise ourselves when we fail](https://www.youtube.com/watch?v=YbDYE-31VU4&t=336s)
+- [TẠI SAO CHÚNG TA THẤT BẠI](https://www.youtube.com/watch?v=Oc2cth18R9I&t=1379s)
