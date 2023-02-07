@@ -26,6 +26,7 @@ Here are some topics I'm interested in
   - [Test benchmark fibonaci](https://hblab-ngocnd.github.io/blogs/golang/benchmark)
 ### Healthline
   - [Sleep Pattern](https://hblab-ngocnd.github.io/blogs/healthline/sleep-pattern)
+  - [Learn From Failed](https://hblab-ngocnd.github.io/blogs/healthline/learn-from-failed)
 ### AWS
   - [Amazon cognito](https://hblab-ngocnd.github.io/blogs/aws/cognito)
 ### 日本語版
