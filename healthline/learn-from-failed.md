@@ -3,7 +3,9 @@
 
 - Câu nói của bố Chủ tịch Hoàng Nam Tiến (Trượt đại học -> thất bại ở chỗ nào đứng lên ở chỗ đấy)
   
-- Khái niệm VUCA: Volatility (Biến động), Uncertainty(Không chắc chắn), Complexity(Phức tạp), Ambiguity(Mơ hồ) -> Học kỹ năng gì đây?
+- Khái niệm VUCA: Volatility (Biến động), Uncertainty(Không chắc chắn), Complexity(Phức tạp), Ambiguity(Mơ hồ) -> Học kỹ năng gì đây? 
+
+    → Không biết nên học cái gì mới thì lựa chọn thông mình là cải thiện kỹ năng vốn có
    
 - Cách học của bản thân: Thực hành trước, thất bại mới liên hệ lý thuyết
   
@@ -27,8 +29,10 @@
 - Câu nói của Mike Tyson: Everyone has a plan 'till they get punched in the mouth
   
 - Mọi việc xảy ra đều là việc nên xảy ra, và có ý nghĩa
+
+- Sai không có vấn đề gì, sai một lỗi > 2 lần mới là vấn đề
   
-- Nhìn theo hướng tích cực: Không thành công cũng thành nhân
+- Nhìn theo hướng tích cực: Không thành công cũng thành nhân, không cháy nhà, chết người thì không sao cả
 
 - Dù có nỗ lực đến mấy thì vẫn có khả năng thất bại (Vô thường)
 
@@ -50,4 +54,4 @@
 
 ## 3. Sửa lỗi
 
-- Sai chỗ nào sửa chỗ đấy, yếu chỗ nào sửa chỗ đấy
+- Sai chỗ nào sửa chỗ đấy, yếu chỗ nào sửa chỗ đấy: Đội tuyển Nhật luyện đá pen
