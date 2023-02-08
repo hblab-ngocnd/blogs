@@ -13,7 +13,7 @@
   
 - Vấn đề của hệ thống giáo dục châu Á không dạy việc học từ thất bại
    
-- Phát triển phần mềm gồm 2 hành động: Thêm tính năng mới, cải thiện tính năng cũ -> cải thiện tính năng cũ thường rõ ràng hơn
+- Phát triển phần mềm gồm 2 việc: Thêm tính năng mới, cải thiện tính năng cũ -> cải thiện tính năng cũ thường rõ ràng hơn
   
 - Luật nhân quả, thất bại là 1 thông tin phản hồi (NLP)
   
