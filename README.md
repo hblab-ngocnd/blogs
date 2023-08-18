@@ -10,7 +10,7 @@ My current side project is [Markdown Profile](https://markdownprofile.com)
 
 [LinkedIn 💼](https://www.linkedin.com/in/nguyen-duc-ngoc-109781114/)
 
-[Twitter 🐦](https://twitter.com/ducngocvnk57)
+[Twitter 🐦](https://twitter.com/Ngoc94Zoro)
 
 Website 🌍
 
