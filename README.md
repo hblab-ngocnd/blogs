@@ -24,6 +24,7 @@ Here are some topics I'm interested in
   - [Channels in Go](https://hblab-ngocnd.github.io/blogs/golang/chanels)
   - [Options Pattern in Golang](https://hblab-ngocnd.github.io/blogs/golang/options_pattern)
   - [Test benchmark fibonaci](https://hblab-ngocnd.github.io/blogs/golang/benchmark)
+  - [Go Effective Notes](https://hblab-ngocnd.github.io/blogs/golang/golang_effective_notes)
 ### Healthline
   - [Sleep Pattern](https://hblab-ngocnd.github.io/blogs/healthline/sleep-pattern)
   - [Learn From Failed](https://hblab-ngocnd.github.io/blogs/healthline/learn-from-failed)

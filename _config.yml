@@ -11,6 +11,7 @@ include:
   - ./golang/chanels.md
   - ./golang/why_go_jp.md
   - ./golang/benchmark.md
+  - ./golang/golang_effective_notes.md
   - ./healthline/sleep-pattern.md
   - ./aws/cognito.md
 theme: jekyll-theme-cayman
